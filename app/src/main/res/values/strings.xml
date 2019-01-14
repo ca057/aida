@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AIDA</string>
+    <string name="app_name_long_1">An Intriguing Doodling Application</string>
+    <string name="act_start_create_new_sketch">Create a new sketch</string>
+</resources>
