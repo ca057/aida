@@ -6,4 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".activities.SketchActivity">
 
+    <ImageButton
+        android:id="@+id/btnSaveSketch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/act_sketch_save_sketch"
+        android:onClick="onSaveSketch"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_baseline_save_alt_24px" />
+
+    <ImageButton
+        android:id="@+id/btnBackToStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/act_sketch_back_to_start"
+        android:onClick="onGoBack"
+        app:layout_constraintBottom_toTopOf="@+id/btnSaveSketch"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_baseline_arrow_back_24px" />
 </android.support.constraint.ConstraintLayout>

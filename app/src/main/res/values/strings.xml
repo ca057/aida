@@ -2,4 +2,6 @@
     <string name="app_name">AIDA</string>
     <string name="app_name_long_1">An Intriguing Doodling Application</string>
     <string name="act_start_create_new_sketch">Create a new sketch</string>
+    <string name="act_sketch_save_sketch">Save sketch</string>
+    <string name="act_sketch_back_to_start">Go back to start</string>
 </resources>

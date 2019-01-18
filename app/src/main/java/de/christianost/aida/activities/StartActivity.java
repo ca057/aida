@@ -1,6 +1,7 @@
 package de.christianost.aida.activities;
 
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,7 +17,7 @@ public class StartActivity extends AppCompatActivity {
     }
 
     /**
-     * Handles clicking the "Create New Sketch" button.
+     * Handles clicking the "Create New ProcessingSketch" button.
      *
      * @param view
      */
