@@ -39,18 +39,20 @@ class SketchActivity : AppCompatActivity() {
         // get manager and sensors
         manager = this.getSystemService(Context.SENSOR_SERVICE) as? SensorManager
         accelerometerSensor = manager?.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+        // TODO: needed?
+        registerAccelerometerListener()
     }
 
     override fun onPause() {
         super.onPause()
 
-        manager?.unregisterListener(accelerometerListener)
+        unregisterAccelerometerListener()
         // TODO("save shit here")
     }
 
     override fun onResume() {
         super.onResume()
-        manager?.registerListener(accelerometerListener, accelerometerSensor, SensorManager.SENSOR_DELAY_GAME)
+        registerAccelerometerListener()
     }
 
     fun onSaveSketch(view: View) {}
@@ -60,4 +62,11 @@ class SketchActivity : AppCompatActivity() {
         finish()
     }
 
+    private fun unregisterAccelerometerListener() {
+        manager?.unregisterListener(accelerometerListener)
+    }
+
+    private fun registerAccelerometerListener() {
+        manager?.registerListener(accelerometerListener, accelerometerSensor, SensorManager.SENSOR_DELAY_GAME)
+    }
 }
