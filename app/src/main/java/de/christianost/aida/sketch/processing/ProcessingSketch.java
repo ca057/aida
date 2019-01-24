@@ -1,21 +1,19 @@
 package de.christianost.aida.sketch.processing;
 
+import de.christianost.aida.hardware.AccelerometerListener;
 import de.christianost.aida.sketch.Sketch;
 import processing.core.PApplet;
 
 public class ProcessingSketch extends PApplet implements Sketch {
     private int width;
     private int height;
-
-    private float ax;
-    private float ay;
-    private float az;
+    private AccelerometerListener accelerometerListener;
     private Point lastPoint;
 
-
-    public ProcessingSketch(int width, int height) {
+    public ProcessingSketch(int width, int height, AccelerometerListener accelerometerListener) {
         this.width = width;
         this.height = height;
+        this.accelerometerListener = accelerometerListener;
     }
 
     public void settings() {
@@ -27,9 +25,11 @@ public class ProcessingSketch extends PApplet implements Sketch {
             ellipse(mouseX, mouseY, 50, 50);
         }
 
+        Float[] accelerometerValues = accelerometerListener.getLatestValues();
+
         Point p = new Point(
-                Calculations.mapXAccelerationToCoordinate(width, ax * 1.2f),
-                Calculations.mapYAccelerationToCoordinate(height, ay * 1.2f)
+                Calculations.mapXAccelerationToCoordinate(width, accelerometerValues[0] * 1.2f),
+                Calculations.mapYAccelerationToCoordinate(height, accelerometerValues[1] * 1.2f)
         );
 
         if (lastPoint != null && lastPoint.equals(p)) {
@@ -46,11 +46,5 @@ public class ProcessingSketch extends PApplet implements Sketch {
     @Override
     public void toImage() {
         // should return an image
-    }
-
-    public void setAcceleration(float ax, float ay, float az) {
-        this.ax = ax;
-        this.ay = ay;
-        this.az = az;
     }
 }

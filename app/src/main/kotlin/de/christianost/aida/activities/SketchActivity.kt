@@ -32,7 +32,7 @@ class SketchActivity : AppCompatActivity() {
         frame.id = CompatUtils.getUniqueViewId()
 
         // create sketch
-        sketch = ProcessingSketch(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+        sketch = ProcessingSketch(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, accelerometerListener)
         val fragment = PFragment(sketch as ProcessingSketch?)
         fragment.setView(frame, this)
 
