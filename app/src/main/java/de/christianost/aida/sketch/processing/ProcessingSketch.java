@@ -1,10 +1,9 @@
 package de.christianost.aida.sketch.processing;
 
 import de.christianost.aida.hardware.AccelerometerListener;
-import de.christianost.aida.sketch.Sketch;
 import processing.core.PApplet;
 
-public class ProcessingSketch extends PApplet implements Sketch {
+public class ProcessingSketch extends PApplet {
     private int width;
     private int height;
     private AccelerometerListener accelerometerListener;
@@ -33,6 +32,7 @@ public class ProcessingSketch extends PApplet implements Sketch {
         );
 
         if (lastPoint != null && lastPoint.equals(p)) {
+            System.out.println("draw a line with point: " + p.toString());
             stroke(204, 102, 51);
             stroke(lerpColor(10, 10, .33f));
             line(lastPoint.getX(), lastPoint.getY(), p.getX(), p.getY());
@@ -43,7 +43,6 @@ public class ProcessingSketch extends PApplet implements Sketch {
 
     }
 
-    @Override
     public void toImage() {
         // should return an image
     }

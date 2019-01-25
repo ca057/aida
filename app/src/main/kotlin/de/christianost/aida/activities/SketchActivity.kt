@@ -11,14 +11,15 @@ import android.widget.FrameLayout
 
 import de.christianost.aida.R
 import de.christianost.aida.hardware.AccelerometerListener
-import de.christianost.aida.sketch.Sketch
 import de.christianost.aida.sketch.processing.ProcessingSketch
 import processing.android.CompatUtils
 import processing.android.PFragment
+import android.content.Intent
+
 
 class SketchActivity : AppCompatActivity() {
 
-    private var sketch: Sketch? = null
+    private var sketch: ProcessingSketch? = null
     private var manager: SensorManager? = null
     private var accelerometerSensor: Sensor? = null
     private var accelerometerListener: AccelerometerListener = AccelerometerListener()
@@ -53,6 +54,14 @@ class SketchActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         registerAccelerometerListener()
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        sketch?.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    }
+
+    override fun onNewIntent(intent: Intent) {
+        sketch?.onNewIntent(intent)
     }
 
     fun onSaveSketch(view: View) {}

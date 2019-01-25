@@ -16,7 +16,7 @@ class AccelerometerListener : SensorEventListener {
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
-        TODO("not implemented")
+        // TODO("not implemented")
     }
 
     fun getLatestValues() : Array<Float> {
